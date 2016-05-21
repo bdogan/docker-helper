@@ -1,0 +1,14 @@
+{
+  "name": "docker-helper",
+  "version": "1.0.0",
+  "description": "Helps the docker instance for creating and running containers.",
+  "main": "docker.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Burak Doğan <bdogan85@gmail.com> (http://burak-dogan.com)",
+  "license": "ISC",
+  "dependencies": {
+    "q": "^1.4.1"
+  }
+}
