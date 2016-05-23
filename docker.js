@@ -97,7 +97,7 @@ module.exports = (function()
         // If platform linux and error exists so not need docker-machine
         if (platform === 'linux') return deferred.reject(err);
         // Select start script
-        var startScript = './scripts/' + platform + '_docker_instance_start.sh';
+        var startScript = __dirname + '/scripts/' + platform + '_docker_instance_start.sh';
         // Orginal docker start scripts without shell integration
         console.log("Starting docker instance...");
         cli_command(startScript)
@@ -172,6 +172,7 @@ module.exports = (function()
     },
     // Docker compose command
     docker_compose: function(command) {
+      if (!command) return;
       return cli_command('docker-compose ' + command);
     },
     // Start Docker container
