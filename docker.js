@@ -99,6 +99,7 @@ module.exports = (function()
         // Select start script
         var startScript = './scripts/' + platform + '_docker_instance_start.sh';
         // Orginal docker start scripts without shell integration
+        console.log("Starting docker instance...");
         cli_command(startScript)
           .then(cli_command.bind(this, 'docker-machine env default'), deferred.reject)
           .then(function(stdout){
@@ -169,6 +170,10 @@ module.exports = (function()
       });
       return deferred.promise;
     },
+    // Docker compose command
+    docker_compose: function(command) {
+      return cli_command('docker-compose ' + command);
+    },
     // Start Docker container
     start_container: function(id, callback)
     {
@@ -197,8 +202,6 @@ module.exports = (function()
         });
     };
   });
-
-
 
   return ___docker;
 })();
