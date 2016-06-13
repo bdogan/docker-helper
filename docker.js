@@ -121,7 +121,10 @@ module.exports = (function()
       var deferred = Q.defer();
 
       exec("docker exec " + name + " " + command, ___command_options, function (err, stdout, stderr) {
-        if (err) return deferred.reject(err);
+        if (err) {
+          err['stderr'] = stderr;
+          return deferred.reject(err);
+        }
         deferred.resolve(stdout);
       });
 
