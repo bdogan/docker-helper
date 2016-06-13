@@ -1,6 +1,6 @@
 {
   "name": "docker-helper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Helps the docker instance for creating and running containers.",
   "main": "docker.js",
   "scripts": {
